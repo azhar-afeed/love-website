@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .box {
+        background: rgba(0,0,0,0.25);
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 350px;
+        width: 90%;
+        animation: fadeIn 1.5s ease;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 25px;
+        background: white;
+        color: #ff4f81;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        background: #ffe1ea;
+    }
+
+    .promise {
+        font-size: 18px;
+        margin-top: 20px;
+        font-weight: bold;
+        min-height: 60px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="content">
+    <h1>Hey My Love ❤️</h1>
+    <p>I made this little world just for you.</p>
+    <button onclick="nextStep()">Start 💕</button>
+</div>
+
+<script>
+let step = 0;
+
+const promises = [
+    "I promise to always respect you 💖",
+    "I promise to stand by you in every situation 🤍",
+    "I promise to make you smile even on bad days 😊",
+    "I promise to grow with you, not away from you 🌱",
+    "I promise to love you honestly and deeply ❤️"
+];
+
+function nextStep() {
+    const content = document.getElementById("content");
+
+    if (step === 0) {
+        content.innerHTML = `
+            <h1>Let’s Play 😌</h1>
+            <p>Click the button to see my promises.</p>
+            <button onclick="nextStep()">Show Promises ✨</button>
+        `;
+    }
+
+    else if (step === 1) {
+        content.innerHTML = `
+            <h1>My Promises 🤞</h1>
+            <div class="promise" id="promiseText"></div>
+            <button onclick="showPromise()">Another Promise 💝</button>
+            <button onclick="nextStep()">Final Message 🫶</button>
+        `;
+        showPromise();
+    }
+
+    else if (step === 2) {
+        content.innerHTML = `
+            <h1>For You ❤️</h1>
+            <p>
+                No fancy words can fully explain what you mean to me.<br><br>
+                But I want you to know this:
+            </p>
+            <h2 style="margin-top:20px;">
+                alllah gavah hay meary pyar ka
+            </h2>
+        `;
+    }
+
+    step++;
+}
+
+function showPromise() {
+    const random = Math.floor(Math.random() * promises.length);
+    document.getElementById("promiseText").innerText = promises[random];
+}
+</script>
+
+</body>
+</html>
